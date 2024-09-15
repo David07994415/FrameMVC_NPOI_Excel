@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">Upload Excel </h1>
+        <p class="lead">1. 先安裝 NPOI 套件</p>
+        <p class="lead">2. using NPOI.SS.UserModel;   using NPOI.XSSF.UserModel;   using NPOI.HSSF.UserModel;</p>
+
+    </section>
+
+    <section class="row" aria-labelledby="checkFile">
+        <h1 id="title">檢查EXCEL</h1>
+        @using (Html.BeginForm("CheckExcelFormat", "Home", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.TextBox("checkMainFile", null, new { type = "File" }) //  multiple = "multiple"    "checkMainFile" 就是 name 和 Id
+            @Html.TextBox("checkSubFile", null, new { type = "File" }) //  multiple = "multiple"    "checkSubFile" 就是 name 和 Id
+            <input type="submit" value="檢查" />
+            <p id="checkFileResult">尚未檢查檔案</p>
+        }
+    </section>
+
+
+    <section class="row" aria-labelledby="uploadFile">
+        <h1 id="title">上傳EXCEL</h1>
+        @using (Html.BeginForm("UploadExcel", "Home", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.TextBox("uploadMainFile", null, new { type = "File" }) //  multiple = "multiple"  "uploadMainFile" 就是 name 和 Id
+            @Html.TextBox("uploadSubFile", null, new { type = "File" }) //  multiple = "multiple"  "uploadSubFile" 就是 name 和 Id
+            <input type="submit" value="上傳" />
+            <p id="uploadFileResult">尚未上傳檔案</p>
+        }
+    </section>
+
+
+
+
+
+    <div class="row">
+        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+            <h2 id="gettingStartedTitle">Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </section>
+        <section class="col-md-4" aria-labelledby="librariesTitle">
+            <h2 id="librariesTitle">Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </section>
+        <section class="col-md-4" aria-labelledby="hostingTitle">
+            <h2 id="hostingTitle">Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </section>
+    </div>
+</main>
